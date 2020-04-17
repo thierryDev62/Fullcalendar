@@ -22,7 +22,24 @@
 <div class="container-fluid">
     <h1>Essai fullcalendar</h1>
     <div class="row m-5">
+
+        <!-- Affichage de la sidebar -->
+        <div class="col-2" id="external-events">
+            <p>Activités</p>
+            <div class='fc-event my-2'>Aquagym</div>
+            <div class='fc-event my-2'>Aquabike</div>
+            <div class='fc-event my-2'>Cours pour enfants</div>
+            <div class='fc-event my-2'>Cours pour adultes</div>
+            <p>
+                <input type='checkbox' id='drop-remove' />
+                <label for='drop-remove'>Enlever après placement</label>
+            </p>
+        </div>
+
+        <!-- Affichage du calendrier -->
+        <div class="col-10">
         <div id="calendrier"></div>
+        </div>
     </div>
 
 </div>
