@@ -1,11 +1,11 @@
 // Méthode évènement directement en javascript
 let evenements = [{
-    "title": "Live coding - demo",
+    "title": "Aquagym",
     "start": "2020-04-16 15:00:00",
     "end": "2020-04-16 16:00:00",
     "backgroundColor": "#839c49"
 },{
-    "title": "Live coding - demo2",
+    "title": "Aquabike",
     "start": "2020-04-16 09:00:00",
     "end": "2020-04-16 12:00:00"
 }
@@ -16,26 +16,62 @@ window.onload = () => {
 
     // On instancie le calendrier
     let calendrier = new FullCalendar.Calendar(elementCalendrier, {
+        // Hauteur de tout le calendrier
+        height: 800,
+
+        // La semaine commence le lundi et on affiche pas le dimanche
+        firstDay: 1,
+        hiddenDays: [0],
+
+        // Affichage heure minimum, maximum
+        minTime: "08:00:00",
+        maxTime: "19:00:00",
+
         // On va appeler les composants
-        plugins: ['dayGrid', 'timeGrid', 'list', 'interaction'],
+        plugins: ['dayGrid', 'timeGrid', 'list', 'interaction', 'bootstrap'],
+
+        // Theme bootstrap par défaut
+        themeSystem: 'bootstrap',
+
+        // FontAwesome pour les icones avec le theme bootstrap
+        bootstrapFontAwesome: {
+          close: 'fa-times',
+            prev: 'fa-arrow-left',
+            next: 'fa-arrow-right'
+        },
 
         // Affichage par défaut
         defaultView: 'timeGridWeek',
 
-        // Traduction en anglais
+        // Traduction en français
         locale: 'fr',
+
+        // Format du titre
+        titleFormat: {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        },
 
         // En-tête du calendrier avec affichage à gauche, droite et au centre
         header: {
             left: 'prev, next today',
             center: 'title',
-            right: 'dayGridMonth, timeGridWeek, list'
+            right: 'dayGridMonth, timeGridWeek, timeGridDay, list'
         },
+
+        // footer
+        footer: {
+          left: 'prev, next today',
+            right: 'dayGridMonth, timeGridWeek, timeGridDay, list'
+        },
+
         // Traduction des boutons
         buttonText: {
             today: 'Aujourd\'hui',
             month: 'Mois',
             week: 'Semaine',
+            day: 'Journée',
             list: 'liste'
         },
         // Injection des évènements
